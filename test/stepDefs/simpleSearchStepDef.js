@@ -12,11 +12,11 @@ Given('I open the search bar', async () => {
   await simpleSearchPageObject.openTheSearchBar()
  });
  
-When('I enter {string}', async (searchTerm) => {
+When('/^I enter "(\w.*)"$/', async (searchTerm) => {
    await simpleSearchPageObject.searchTheTermInSearchBar(searchTerm)
   });
  
-Then('I should select the 4th {string} search listing', async (searchTerm) => {
-   await simpleSearchPageObject.selectTheSearchTerm()
+Then(/^I should select the 4th "(\w.*)" search listing$/, async (searchTerm)=>{
+   await simpleSearchPageObject.selectTheFourthSearchTerm()
    await simpleSearchPageObject.verifySearchTerm(searchTerm)
   });
